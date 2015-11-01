@@ -86,15 +86,15 @@ if (Meteor.isClient) {
 				else
 					$scope.query = {};
 			});	
-			/*
+			
 			$scope.inStock = function(x){
-				if(x.status[x.status.length -1] ==="Available"){
+				if(x.status[x.status.length-1].toLowerCase() ==="available"){
 					return true;
 				}
 				else{
 					return false;
 				}
-			};*/
+			};
 	}]);
 	theMod.controller('Register', ['$scope', '$meteor',function ($scope, $meteor) {
 		//only admin and unregistered users can view this page

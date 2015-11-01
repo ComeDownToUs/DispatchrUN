@@ -19,10 +19,10 @@
 			</li>
 		</ul>
 		Total: {{ getTotal() }}
-		<div ng-show="inBask">
+		<div ng-show="!emptyBask()">
 			<button ng-click="buyThem(basket)">Buy Them</button>
 		</div>
-		<div ng-hide="emptyBask()">
+		<div ng-show="emptyBask()">
 			<span class="test">Your basket is empty</span>
 		</div>
 	</div>

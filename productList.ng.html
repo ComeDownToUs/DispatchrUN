@@ -19,7 +19,9 @@
 				{{product.price}}</p>
 				<p>{{product.description}} |Availability: {{product.status}}</p>
 			</span>
-			<span ng-hide="isAdmin()" ><button ng-click="addCart(product)" >Add To Cart</button></span>
+			<div ng-hide="isAdmin()" >
+				<span ng-show="inStock(product)">
+					<button ng-click="addCart(product)" >Add To Cart</button></span></div>
 		</li>
 	</ul>
 </div>
