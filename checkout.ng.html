@@ -1,0 +1,32 @@
+<div class="container" ng-controller="Checkout">
+    <h1 class="Product">Checkout</h1>
+	<div ng-show="!emptyBask()">
+		<ul>
+			<li ng-repeat="item in basket.products">
+				<button class="delete" ng-click="getRidOf(item)">&times;</button>
+				<span class="test">
+					{{inBasket(item.product).name}} | 
+					{{inBasket(item.product).price}} |
+					{{inBasket(item.product).description}} |
+					{{inBasket(item.product).image}} |
+					{{inBasket(item.product).status}} |
+					{{item.quantity}}
+				</span>
+				<form>
+					<input type="number" ng-model="theQ" ng-value="{{item.quantity}}">
+					<button ng-click="updateQuantity(item._id, theQ)">Change Quantity</button>
+				</form>
+			</li>
+		</ul>
+		Total: {{ getTotal() }}
+		<div ng-show="inBask">
+			<button ng-click="buyThem(basket)">Buy Them</button>
+		</div>
+		<div ng-hide="emptyBask()">
+			<span class="test">Your basket is empty</span>
+		</div>
+	</div>
+	<div ng-show="!isCustomer()">
+		[[[Only customer's should be able to view the basket in finished product]]]
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container" ng-controller="ViewAnOrder">
+	<div ng-if="orderExists(order)">
+		<h1 class="Product">Orders</h1>
+		Ordered on: {{order.date}}
+		Total Price: {{order.price|currency}} 
+		Order ID: {{order._id}}
+		<ul>
+			<li ng-repeat="item in order.products"><a href="product/{{item.product}}">{{item.product}}</a> | {{item.quantity}}</li>
+		</ul>
+	</div>
+	<div ng-if="!orderExists(order)">
+		That ID doesn't exist
+	</div>
+</div>

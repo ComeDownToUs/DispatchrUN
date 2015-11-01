@@ -1,0 +1,25 @@
+<div class="container" ng-controller="ProductList">
+	<header>
+		<h1>Products</h1>
+	</header>
+	
+	<label class="hide-completed">
+		<input type="checkbox" ng-model="$parent.hideUnavailable"/>
+		Hide Items Not Currently In Stock
+	</label>
+	    
+    <!-- productlistingtemplate -->
+	<ul>
+		<li ng-repeat="product in products" ng-class="{'checked': product.checked}">
+			<button class="delete" ng-click="products.remove(product)">&times;</button>
+
+			<span class="test">
+				
+				<p><a href="product/{{product._id}}">{{product.name}}</a> | 
+				{{product.price}}</p>
+				<p>{{product.description}} |Availability: {{product.status}}</p>
+			</span>
+			<span ng-hide="isAdmin()" ><button ng-click="addCart(product)" >Add To Cart</button></span>
+		</li>
+	</ul>
+</div>

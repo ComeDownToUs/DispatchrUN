@@ -1,0 +1,25 @@
+<div class="container" ng-controller="ProductView">
+	<div class="container" ng-show="true">
+		<h2 class="Product">{{product.name}}</h2>
+		{{product.price}} | 
+		{{product.description}} | 
+		{{product.status}}
+		<span ng-show="isAdmin()"><button ng-click="switchIt()">Edit</button></span>
+		<span ng-hide="isAdmin()" ><button ng-click="addCart(product)" >Add To Cart</button></span>
+	</div>
+	<div ng-show="toggle">
+		<form ng-submit="updateProd(u)">
+			<table>
+				<tr><td>Product Name</td><td><input type="text" ng-model="u.name" ng-value='{{product.name}}'></td></tr>
+				<tr><td>Price</td><td><input type="text" ng-model="u.price" ng-value='{{product.price}}'></td></tr>
+				<tr><td>Description</td><td><input type="text" ng-model="u.description" ng-value='{{product.description}}'></td></tr>
+				<tr><td>Status</td><td><select ng-model="u.status" ng-value="{{product.status}}">
+												<option ng-value="['Available']">Available</option>
+												<option ng-value="['On Order']">Coming Soon</option>
+												<option ng-value="['No Longer in Stock']">Not Available</option>
+												</select></td></tr>
+				<tr><td><button ng-click="switchIt()">Cancel</button></td><td><input type="submit" value="Change Details"></td></tr>
+			</table>
+		</form>
+	</div>
+</div>
