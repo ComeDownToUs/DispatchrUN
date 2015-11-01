@@ -11,7 +11,7 @@ if (Meteor.isClient) {
 	
 	var theMod = angular.module('productsShop');//previous error caused by redefining https://docs.angularjs.org/error/$injector/unpr?p0=e
 
-	theMod.config(function($urlRouterProvider, $stateProvider, $locationProvider){
+	theMod.config(['$urlRouterProvider', '$stateProvider', '$locationProvider' ,function($urlRouterProvider, $stateProvider, $locationProvider){
 
 		$locationProvider.html5Mode(true);
 
@@ -63,7 +63,7 @@ if (Meteor.isClient) {
 			});
 
 		$urlRouterProvider.otherwise("/");
-    });
+    }]);
 
 	theMod.controller('ProductList', ['$scope', '$meteor',function ($scope, $meteor) {
 
